@@ -46,11 +46,11 @@ include '../includes/header.php';
         <!-- Charts Row -->
         <div class="charts-row"
             style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-            <div class="glass glass-card" style="min-height: 400px;">
+            <div class="glass glass-card" style="height: 400px; position: relative;">
                 <h3 style="margin-bottom: 1.5rem;">Revenue Analytics</h3>
                 <canvas id="revenueChart"></canvas>
             </div>
-            <div class="glass glass-card" style="min-height: 400px;">
+            <div class="glass glass-card" style="height: 400px; position: relative;">
                 <h3 style="margin-bottom: 1.5rem;">Shipment Status</h3>
                 <canvas id="statusChart"></canvas>
             </div>
@@ -101,7 +101,7 @@ include '../includes/header.php';
     const counters = document.querySelectorAll('.counter');
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
+        const count = Number(counter.innerText);
         const speed = 200;
         const inc = target / speed;
 
@@ -125,7 +125,7 @@ include '../includes/header.php';
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [{
                 label: 'Revenue ($)',
-                data: [12000, 19000, 15000, 25000, 22000, 30000],
+                data: [120, 190, 155, 250, 200, 300],
                 borderColor: '#4f46e5',
                 tension: 0.4,
                 fill: true,
